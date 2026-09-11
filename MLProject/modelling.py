@@ -10,7 +10,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import ParameterGrid
 
 from training_common import (MODEL_REQUIREMENTS, configure_tracking, evaluate, export_model,
-    load_data, log_provenance, manual_artifacts, parser, write_json)
+    load_data, log_provenance, log_source_versioning, manual_artifacts, parser, write_json)
 
 
 def main() -> None:
@@ -39,6 +39,7 @@ def main() -> None:
         for index, candidate in enumerate(candidates):
             params = {**candidate, "random_state": args.seed, "n_jobs": args.n_jobs}
             with mlflow.start_run(run_name=f"candidate-{index:02d}", nested=True) as child:
+                log_source_versioning()
                 model = RandomForestClassifier(**params)
                 mlflow.log_params(model.get_params(deep=True))
                 model.fit(*data["train"])

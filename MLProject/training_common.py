@@ -6,6 +6,8 @@ import hashlib
 import json
 import os
 import platform
+import subprocess
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -52,6 +54,39 @@ def configure_tracking(args: argparse.Namespace) -> Path:
     if not os.getenv("MLFLOW_RUN_ID"):
         mlflow.set_experiment(args.experiment)
     return output
+
+
+def log_source_versioning(source_path: Path | None = None) -> None:
+    """Discard an inferred enclosing-repository commit only for untracked source."""
+    source = (source_path or Path(sys.argv[0])).resolve()
+    tracked = None
+    if source.is_file():
+        try:
+            repository = subprocess.run(["git", "rev-parse", "--show-toplevel"], cwd=source.parent,
+                                        capture_output=True, text=True, timeout=10)
+            if repository.returncode == 0:
+                result = subprocess.run(["git", "ls-files", "--error-unmatch", "--", source.name],
+                                        cwd=source.parent, capture_output=True, text=True, timeout=10)
+                if result.returncode in (0, 1):
+                    tracked = result.returncode == 0
+        except (OSError, subprocess.TimeoutExpired):
+            pass
+    if tracked is False:
+        active = mlflow.active_run()
+        if active is None:
+            raise RuntimeError("Source versioning must be recorded inside an active MLflow run.")
+        client = mlflow.MlflowClient()
+        if "mlflow.source.git.commit" in client.get_run(active.info.run_id).data.tags:
+            client.delete_tag(active.info.run_id, "mlflow.source.git.commit")
+        description = ("Untracked package source; enclosing-repository commit omitted. "
+                       "Exact source_snapshot files and source_files_sha256 are recorded on this run or its parent.")
+    elif tracked is True:
+        description = ("Git-tracked source; Git commit retained. Exact executed source files and SHA256 "
+                       "are also recorded in source_snapshot and training_provenance.json.")
+    else:
+        description = ("Git tracking status could not be verified; existing Git metadata left unchanged. "
+                       "Use source_snapshot and source_files_sha256 for exact executed source.")
+    mlflow.set_tag("source_versioning", description)
 
 
 def load_data(data_dir: Path) -> tuple[dict, dict]:
@@ -120,6 +155,7 @@ def evaluate(model, X: pd.DataFrame, y: pd.Series, prefix: str) -> tuple[dict, n
 
 
 def log_provenance(data_dir: Path, data: dict, provenance: dict, output: Path) -> None:
+    log_source_versioning()
     write_json(output / "training_provenance.json", provenance)
     mlflow.log_artifact(str(output / "training_provenance.json"))
     for name in provenance.get("source_files_sha256", {}):
