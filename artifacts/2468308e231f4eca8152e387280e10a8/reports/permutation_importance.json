@@ -1,0 +1,233 @@
+{
+  "data": "validation only",
+  "scoring": "average_precision",
+  "n_repeats": 3,
+  "note": "Correlated/one-hot features may share importance; this is predictive association, not causality.",
+  "features": [
+    {
+      "name": "SeniorCitizen",
+      "mean": -0.03351068010741017,
+      "std": 0.0010822037154306296
+    },
+    {
+      "name": "tenure",
+      "mean": 0.04356507199058527,
+      "std": 0.019719286193432335
+    },
+    {
+      "name": "MonthlyCharges",
+      "mean": -0.042256352255967654,
+      "std": 0.009914483832812933
+    },
+    {
+      "name": "TotalCharges",
+      "mean": -0.0017589396493619864,
+      "std": 0.006288650391634467
+    },
+    {
+      "name": "gender_Female",
+      "mean": -0.03749735676760372,
+      "std": 0.00030330757425085043
+    },
+    {
+      "name": "gender_Male",
+      "mean": -0.03742761059933194,
+      "std": 0.0010054289949777836
+    },
+    {
+      "name": "Partner_No",
+      "mean": -0.03579732876840924,
+      "std": 0.0014821123613445357
+    },
+    {
+      "name": "Partner_Yes",
+      "mean": -0.034483854811353375,
+      "std": 0.0015954929274157319
+    },
+    {
+      "name": "Dependents_No",
+      "mean": -0.04096477616508717,
+      "std": 0.0012094735944950528
+    },
+    {
+      "name": "Dependents_Yes",
+      "mean": -0.04147361238686557,
+      "std": 0.002026388139516338
+    },
+    {
+      "name": "PhoneService_No",
+      "mean": -0.03490745651646846,
+      "std": 8.197303065197241e-05
+    },
+    {
+      "name": "PhoneService_Yes",
+      "mean": -0.034581229545883975,
+      "std": 0.00019294415326702078
+    },
+    {
+      "name": "MultipleLines_No",
+      "mean": -0.043095234831715734,
+      "std": 0.0011148999738275671
+    },
+    {
+      "name": "MultipleLines_No phone service",
+      "mean": -0.03421124374342114,
+      "std": 0.0001815856970886866
+    },
+    {
+      "name": "MultipleLines_Yes",
+      "mean": -0.045445625543428604,
+      "std": 0.0026636751326014865
+    },
+    {
+      "name": "InternetService_DSL",
+      "mean": -0.0323625680364088,
+      "std": 0.004281306536045317
+    },
+    {
+      "name": "InternetService_Fiber optic",
+      "mean": -0.03003223909813439,
+      "std": 0.022702732458545614
+    },
+    {
+      "name": "InternetService_No",
+      "mean": -0.03768392427596545,
+      "std": 0.009027863844842332
+    },
+    {
+      "name": "OnlineSecurity_No",
+      "mean": -0.038541660123238564,
+      "std": 0.017706708444315936
+    },
+    {
+      "name": "OnlineSecurity_No internet service",
+      "mean": -0.03643426015497967,
+      "std": 0.007274940522163457
+    },
+    {
+      "name": "OnlineSecurity_Yes",
+      "mean": -0.03712683471061754,
+      "std": 0.002633591705959898
+    },
+    {
+      "name": "OnlineBackup_No",
+      "mean": -0.029319825251272857,
+      "std": 0.004233282144112751
+    },
+    {
+      "name": "OnlineBackup_No internet service",
+      "mean": -0.03484294405519195,
+      "std": 0.005087565340394126
+    },
+    {
+      "name": "OnlineBackup_Yes",
+      "mean": -0.03098492599667561,
+      "std": 0.00011033950213560003
+    },
+    {
+      "name": "DeviceProtection_No",
+      "mean": -0.03735383335479577,
+      "std": 7.684745248563959e-05
+    },
+    {
+      "name": "DeviceProtection_No internet service",
+      "mean": -0.03700988281243641,
+      "std": 0.008553888372614796
+    },
+    {
+      "name": "DeviceProtection_Yes",
+      "mean": -0.034740460292445374,
+      "std": 0.0022208725667739434
+    },
+    {
+      "name": "TechSupport_No",
+      "mean": -0.029265889754911772,
+      "std": 0.012258098041083125
+    },
+    {
+      "name": "TechSupport_No internet service",
+      "mean": -0.03759865449936121,
+      "std": 0.009700090420471008
+    },
+    {
+      "name": "TechSupport_Yes",
+      "mean": -0.030787425153821785,
+      "std": 0.005457989621787005
+    },
+    {
+      "name": "StreamingTV_No",
+      "mean": -0.03459156643044492,
+      "std": 0.0031484349367011705
+    },
+    {
+      "name": "StreamingTV_No internet service",
+      "mean": -0.03636620671917701,
+      "std": 0.009438867377611102
+    },
+    {
+      "name": "StreamingTV_Yes",
+      "mean": -0.03659074955539968,
+      "std": 0.00358917995477402
+    },
+    {
+      "name": "StreamingMovies_No",
+      "mean": -0.03254332997428729,
+      "std": 0.0014985629818548257
+    },
+    {
+      "name": "StreamingMovies_No internet service",
+      "mean": -0.03591828286591684,
+      "std": 0.010061322018715417
+    },
+    {
+      "name": "StreamingMovies_Yes",
+      "mean": -0.031147487935825002,
+      "std": 0.0009616827628651493
+    },
+    {
+      "name": "Contract_Month-to-month",
+      "mean": -0.010824081185904758,
+      "std": 0.012683013837980286
+    },
+    {
+      "name": "Contract_One year",
+      "mean": -0.03607461661032744,
+      "std": 0.0031784504902352953
+    },
+    {
+      "name": "Contract_Two year",
+      "mean": -0.029459718545206754,
+      "std": 0.0011266226674437887
+    },
+    {
+      "name": "PaperlessBilling_No",
+      "mean": -0.041491663511294886,
+      "std": 0.005149578937508577
+    },
+    {
+      "name": "PaperlessBilling_Yes",
+      "mean": -0.03969728809730807,
+      "std": 0.00443076488575913
+    },
+    {
+      "name": "PaymentMethod_Bank transfer (automatic)",
+      "mean": -0.035613870415163985,
+      "std": 0.0016654377611347152
+    },
+    {
+      "name": "PaymentMethod_Credit card (automatic)",
+      "mean": -0.03575967213996778,
+      "std": 0.0019340816601222937
+    },
+    {
+      "name": "PaymentMethod_Electronic check",
+      "mean": -0.029432958892759358,
+      "std": 0.0042630586232354035
+    },
+    {
+      "name": "PaymentMethod_Mailed check",
+      "mean": -0.036078330165179105,
+      "std": 0.0014929278018581617
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "training_score": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "training_accuracy_score": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "training_precision_score": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "training_recall_score": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "training_f1_score": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "training_log_loss": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "training_roc_auc": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "training_average_precision": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "training_churn_precision": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "training_churn_recall": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "training_churn_f1": {
+    "split": "training",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_score": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_accuracy_score": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_precision_score": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_recall_score": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_f1_score": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_log_loss": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_roc_auc": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_average_precision": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_churn_precision": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_churn_recall": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "validation_churn_f1": {
+    "split": "validation",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_score": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_accuracy_score": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_precision_score": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_recall_score": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_f1_score": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_log_loss": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_roc_auc": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_average_precision": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_churn_precision": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_churn_recall": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  },
+  "test_churn_f1": {
+    "split": "test",
+    "averaging": "weighted for *_precision_score/*_recall_score/*_f1_score; binary positive=1 for churn_*",
+    "definition": "training_common.evaluate; threshold=0.5; average_precision is sklearn AP (not trapezoidal PR AUC)"
+  }
+}
