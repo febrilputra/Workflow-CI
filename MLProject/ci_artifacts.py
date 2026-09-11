@@ -1,12 +1,32 @@
 """Package the exact training output and smoke-test MLflow HTTP serving."""
 import argparse
 import hashlib
+import http.client
 import json
 import shutil
 import time
 import urllib.error
 import urllib.request
 from pathlib import Path
+
+
+def wait_for_health(url: str, timeout_seconds: float = 180) -> None:
+    """Allow transient startup transport errors, while keeping a fixed deadline."""
+    deadline = time.monotonic() + timeout_seconds
+    while True:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            raise RuntimeError(f"MLflow serving did not become healthy within {timeout_seconds:g} seconds.")
+        try:
+            with urllib.request.urlopen(url + "/ping", timeout=min(3, remaining)) as response:
+                if response.status == 200:
+                    return
+        except (urllib.error.URLError, TimeoutError, ConnectionError, http.client.HTTPException):
+            # The container may accept TCP before its HTTP/model workers are ready.
+            pass
+        remaining = deadline - time.monotonic()
+        if remaining > 0:
+            time.sleep(min(2, remaining))
 
 
 def main():
@@ -53,16 +73,7 @@ def main():
         import mlflow.sklearn
         X = pd.read_csv(args.data_dir / "X_val.csv").head(3).astype("float64")
         payload = {"dataframe_split": {"columns": list(X.columns), "data": X.values.tolist()}}
-        deadline = time.monotonic() + 180
-        while True:
-            try:
-                with urllib.request.urlopen(args.url + "/ping", timeout=3) as response:
-                    if response.status == 200:
-                        break
-            except (urllib.error.URLError, TimeoutError):
-                if time.monotonic() >= deadline:
-                    raise RuntimeError("MLflow serving did not become healthy within 180 seconds.")
-                time.sleep(2)
+        wait_for_health(args.url)
         request = urllib.request.Request(args.url + "/invocations", data=json.dumps(payload).encode(),
                                          headers={"Content-Type": "application/json"}, method="POST")
         with urllib.request.urlopen(request, timeout=30) as response:
