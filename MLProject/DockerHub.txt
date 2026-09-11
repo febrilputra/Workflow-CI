@@ -1,0 +1,8 @@
+https://hub.docker.com/r/febrilputra17/telco-churn
+Repository Docker Hub telah diverifikasi tersedia dengan visibilitas Public.
+Image hasil CI belum tersedia: workflow belum berhasil melakukan build dan push online.
+Akun Docker Hub: febrilputra17.
+Target image: febrilputra17/telco-churn dengan tag unik dari workflow CI.
+Setelah berhasil, lihat artifacts/<RUN_ID>/deployment.json pada branch model-artifacts.
+File tersebut berisi image dengan tag unik dan tautan Docker Hub aktual.
+Jangan menyatakan Advanced CI selesai sebelum image dapat di-pull dan diuji.

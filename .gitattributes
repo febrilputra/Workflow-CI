@@ -1,0 +1,2 @@
+* text=auto eol=lf
+MLProject/telco_churn_preprocessing/** -text whitespace=cr-at-eol

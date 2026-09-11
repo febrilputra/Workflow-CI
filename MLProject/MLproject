@@ -1,0 +1,14 @@
+name: telco-churn-retraining
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      data_dir: {type: string, default: telco_churn_preprocessing}
+      params_file: {type: string, default: selected_params.json}
+      output_dir: {type: string, default: output}
+      seed: {type: int, default: 42}
+    command: >-
+      python modelling.py --data-dir {data_dir} --params-file {params_file}
+      --output-dir {output_dir} --seed {seed} --n-jobs 2
