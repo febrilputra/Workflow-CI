@@ -2,6 +2,19 @@
 
 Repository terpisah untuk retraining model melalui MLflow Project, penyimpanan artefak permanen pada repository ini, dan build/push image menggunakan MLflow. Identitas siswa: **Muhammad-Febrilian-Kurnia-Putra**, username Dicoding **febril_putra**.
 
+[GitHub Actions run 34599549644](https://github.com/febrilputra/Workflow-CI/actions/runs/34599549644) berhasil pada 11 September 2026. Run tersebut melatih model, menyimpan artefak pada repository ini, membangun image dengan MLflow, menguji prediksi container, dan melakukan push ke [Docker Hub](https://hub.docker.com/r/febrilputra17/telco-churn).
+
+| Bukti pipeline terpilih | Identitas |
+| --- | --- |
+| Commit source training | `31d149970d6295e53b019140fe9f42a062a208eb` |
+| Run MLflow | `2468308e231f4eca8152e387280e10a8` |
+| Image hasil CI | `febrilputra17/telco-churn:31d149970d6295e53b019140fe9f42a062a208eb-2-1` |
+| Artefak permanen | [Snapshot pada commit artefak 6cc545e](https://github.com/febrilputra/Workflow-CI/tree/6cc545e1b041f4cd1482a6378ed4adaf810550e4/artifacts/2468308e231f4eca8152e387280e10a8) |
+| Integritas unduhan | 25 checksum berkas pada `artifact_checksums.json` cocok dengan unduhan lokal |
+| Smoke test CI | Prediksi `[0, 1, 0]` sama dengan model tersimpan; receipt pada `smoke_test.json` |
+
+Tautan artefak menunjuk commit tertentu agar tetap merujuk hasil run yang sama setelah branch `model-artifacts` diperbarui oleh training berikutnya. `deployment.json` merekam image, commit source, run ID, dan SHA256 model.
+
 ```text
 main: data preprocessing + selected_params.json
   |
@@ -30,7 +43,7 @@ model + reports + provenance                                      |
 
 Data berasal dari [repository eksperimen](https://github.com/febrilputra/Eksperimen_SML_Muhammad-Febrilian-Kurnia-Putra). Script CI menggunakan snapshot data yang dicommit pada repository ini sehingga checkout dapat berjalan mandiri. Saat memperbarui data, salin seluruh folder preprocessing beserta manifest; jangan mencampur versi file. `training_provenance.json` mencatat checksum input dan manifest sumber.
 
-Siapkan repository publik dan izinkan workflow menulis contents. Masukkan dua GitHub Actions secrets berikut melalui pengaturan repository:
+Repository GitHub dan Docker Hub yang digunakan berstatus publik. Untuk menjalankan workflow pada repository lain, izinkan workflow menulis contents dan masukkan dua GitHub Actions secrets berikut melalui pengaturan repository:
 
 | Secret | Isi |
 | --- | --- |
@@ -58,15 +71,15 @@ Image memakai tag unik `<COMMIT_SHA>-<GITHUB_RUN_NUMBER>-<GITHUB_RUN_ATTEMPT>` a
 
 Build menggunakan `mlflow models build-docker --env-manager local`. MLflow membuat image `python:3.12.10-slim` dan memasang dependency dari model ke dalam image; opsi ini tidak bergantung pada environment Python host saat container berjalan. Atribut Git mempertahankan byte dataset dan artefak biner agar checksum tidak berubah akibat konversi CRLF/LF. Provenance juga menyimpan SHA256 source code aktual; tag commit repository saja belum mewakili source yang belum dicommit saat eksperimen lokal.
 
-Unduh direktori artefak berdasarkan run yang dipilih dari branch `model-artifacts`, atau pull nama image persis dalam `deployment.json`. Contoh serving setelah mengganti nilai `IMAGE` dengan image aktual:
+Unduh direktori artefak berdasarkan snapshot commit di atas, atau pull image terpilih berikut:
 
 ```powershell
-docker pull IMAGE
-docker run --rm -p 5001:8080 IMAGE
+docker pull febrilputra17/telco-churn:31d149970d6295e53b019140fe9f42a062a208eb-2-1
+docker run --rm -p 5001:8080 febrilputra17/telco-churn:31d149970d6295e53b019140fe9f42a062a208eb-2-1
 ```
 
 Port model MLflow dalam container adalah 8080. Endpoint prediksi menerima fitur numerik sesuai signature melalui `dataframe_split`; sistem monitoring melakukan preprocessing raw menggunakan transformer dan skema dari run yang sama.
 
-Kode dan konfigurasi belum membuktikan pekerjaan online selesai. Bukti yang diperlukan: setidaknya satu Actions run berhasil, artefak permanen dapat diunduh, image dapat di-pull, dan serving/monitoring lokal menggunakan image tersebut.
+Keberhasilan pipeline online ditunjukkan oleh run, artefak permanen, dan image di atas. Status serving serta monitoring lokal atas image tersebut dicatat dalam folder `Monitoring dan Logging` pada paket submission.
 
 Referensi: [MLflow Projects 2.19](https://mlflow.org/docs/2.19.0/projects.html), [MLflow build-docker 2.19](https://mlflow.org/docs/2.19.0/cli.html#build-docker), [penyimpanan Actions artifacts](https://docs.github.com/en/actions/tutorials/store-and-share-data).

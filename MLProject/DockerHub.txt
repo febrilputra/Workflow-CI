@@ -1,8 +1,10 @@
 https://hub.docker.com/r/febrilputra17/telco-churn
-Repository Docker Hub telah diverifikasi tersedia dengan visibilitas Public.
-Image hasil CI belum tersedia: workflow belum berhasil melakukan build dan push online.
-Akun Docker Hub: febrilputra17.
-Target image: febrilputra17/telco-churn dengan tag unik dari workflow CI.
-Setelah berhasil, lihat artifacts/<RUN_ID>/deployment.json pada branch model-artifacts.
-File tersebut berisi image dengan tag unik dan tautan Docker Hub aktual.
-Jangan menyatakan Advanced CI selesai sebelum image dapat di-pull dan diuji.
+Repository Docker Hub berstatus Public. Build MLflow, smoke test container, dan push image telah berhasil melalui GitHub Actions.
+Image terpilih: febrilputra17/telco-churn:31d149970d6295e53b019140fe9f42a062a208eb-2-1
+Workflow berhasil: https://github.com/febrilputra/Workflow-CI/actions/runs/34599549644
+Run MLflow: 2468308e231f4eca8152e387280e10a8
+Commit source training: 31d149970d6295e53b019140fe9f42a062a208eb
+Artefak permanen: https://github.com/febrilputra/Workflow-CI/tree/6cc545e1b041f4cd1482a6378ed4adaf810550e4/artifacts/2468308e231f4eca8152e387280e10a8
+SHA256 model.pkl: 1d13b4106fb5054440fb81efad454c69ea653f928e83a23206af50c915c30244
+deployment.json dan smoke_test.json pada lokasi artefak menghubungkan run, image, dan hasil uji prediksi.
+Status serving dan monitoring lokal dicatat terpisah pada paket Monitoring dan Logging.
