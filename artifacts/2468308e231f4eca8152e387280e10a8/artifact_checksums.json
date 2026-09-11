@@ -1,8 +1,10 @@
 {
   "training_provenance.json": "2bcb1d4474dc4b8b7a05c34f95ab9116ab3a144d3da98975908485d591388e79",
+  "deployment.json": "106a66e19e997a22ce9cf713a95575058e487a56f27fe273b7ec20c5c39a7083",
   "candidate_results.json": "5fad13d97dbc08dfa6a00ad8ccc7248fe07ce65e41fae0f11bbeb7f4288e94f8",
   "selected_params.json": "a445aabcb8c03ef30a259559de937655b471309fbf65d35805765cc87f42a736",
   "test_predictions.csv": "66c833a784d49f4ad7ab26ff2c1390f7ab32c6827df4bb7a0062b7c0eba731ad",
+  "smoke_test.json": "50c72a2bb642b4ac0b96618f33daaf5232ce664a85074fcad06c389f161c6e12",
   "winner.json": "bf1b2c7dbc392442b7360ba536d89ce74c68715e3882dd1dbb7103ef1ed4af9b",
   "preprocessing/feature_schema.json": "23b3ad00b550729c5c6305693d3a5dd5eacf42eb9dfc9662f291b8d2f6fa08ea",
   "preprocessing/preprocessor.joblib": "1399172dc14bbe8010d5c15556ece1aedfddefee97ca37a2b43d08a595cfad13",

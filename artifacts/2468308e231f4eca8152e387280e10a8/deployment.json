@@ -1,0 +1,8 @@
+{
+  "run_id": "2468308e231f4eca8152e387280e10a8",
+  "model_sha256": "1d13b4106fb5054440fb81efad454c69ea653f928e83a23206af50c915c30244",
+  "image": "febrilputra17/telco-churn:31d149970d6295e53b019140fe9f42a062a208eb-2-1",
+  "git_commit": "31d149970d6295e53b019140fe9f42a062a208eb",
+  "dockerhub_url": "https://hub.docker.com/r/febrilputra17/telco-churn",
+  "serving_port": 8080
+}
